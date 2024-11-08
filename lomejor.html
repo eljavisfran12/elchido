@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbería 82 - La mejor experiencia en barbería</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Fondo de barbería */
+        body {
+            background: url('img/barber1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+
+        .navbar .navbar-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar .navbar-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .navbar .navbar-links a:hover {
+            color: #f8c146;
+        }
+
+        /* Estilos para móviles */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px;
+            }
+
+            .navbar .navbar-links {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .navbar .navbar-links a {
+                padding: 10px 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            .navbar .logo {
+                margin: 10px 0;
+            }
+
+            .container {
+                margin-top: 150px;
+            }
+
+            .section {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .product-grid {
+                margin-left: 0;
+            }
+        }
+
+        /* Contenedor principal */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 120px;
+            padding: 20px;
+        }
+
+        /* Sección de logros recientes */
+        .section {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        .section h3 {
+            margin-top: 0;
+        }
+
+        .achievement {
+            margin-bottom: 20px;
+        }
+
+        /* Sidebar para filtros */
+        .sidebar {
+            padding: 20px;
+            background-color: rgba(51, 51, 51, 0.8);
+            width: 220px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+        }
+
+        .sidebar hr {
+            border: 0;
+            height: 1px;
+            background: #333;
+            margin: 20px 0;
+        }
+
+        /* Slider de rango de precio */
+        #priceFilter {
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        #priceValue {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        /* Grid de productos */
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        /* Tarjeta de producto */
+        .product-card {
+            width: 200px;
+            padding: 10px;
+            background-color: rgba(19, 18, 18, 0.95);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s ease-in;
+            opacity: 0;
+            display: none; /* Oculto por defecto */
+        }
+
+        .product-card.show {
+            opacity: 1;
+            display: block; /* Mostrar cuando se añada la clase 'show' */
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-links">
+            <a href="lomejor.html"><i class="fas fa-cut"></i> Lo mejor de..</a>
+            <a href="promos.html"><i class="fas fa-tags"></i> Promociones</a>
+        </div>
+        <a href="index.html">
+            <img src="img/logo.jpeg" alt="Logo de la Barbería" class="logo">
+        </a>
+        <div class="navbar-links">
+            <a href="https://www.facebook.com/tu_pagina" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="https://www.instagram.com/tu_perfil" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://www.tiktok.com/@tu_usuario" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+        </div>
+    </nav>
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Logros y Eventos</title>
+        <style>
+            /* Estilos generales */
+            .container {
+                max-width: 800px;
+                margin: auto;
+                padding: 20px;
+                font-family: Arial, sans-serif;
+            }
+            
+            .section {
+                margin-bottom: 30px;
+            }
+    
+            h2 {
+                color: #333;
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+    
+            .achievement, .event {
+                background-color: #f9f9f9;
+                padding: 15px;
+                border-radius: 5px;
+                margin-bottom: 15px;
+                border: 1px solid #ddd;
+            }
+    
+            h3 {
+                color: #555;
+                font-size: 20px;
+                margin: 0 0 10px;
+            }
+    
+            p {
+                color: #666;
+                font-size: 16px;
+                margin: 0;
+            }
+    
+            button {
+                padding: 8px 16px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-top: 10px;
+            }
+    
+            button:hover {
+                background-color: #0056b3;
+            }
+    
+            .product-grid {
+                display: none;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-top: 10px;
+            }
+    
+            .product-card {
+                width: calc(50% - 10px);
+                background-color: #fff;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                overflow: hidden;
+                text-align: center;
+                transition: transform 0.3s ease;
+                opacity: 0;
+                transform: scale(0.9);
+            }
+    
+            .product-card.show {
+                opacity: 1;
+                transform: scale(1);
+            }
+    
+            .product-card img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+    
+            .product-card h4 {
+                color: #333;
+                font-size: 16px;
+                margin: 8px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Logros y Eventos</title>
+            <style>
+                /* Estilos generales */
+                .container {
+                    max-width: 800px;
+                    margin: auto;
+                    padding: 20px;
+                    font-family: Arial, sans-serif;
+                }
+                
+                /* Margen superior para evitar que choque con la barra de navegación */
+                .section {
+                    margin-top: 50px;
+                    margin-bottom: 30px;
+                }
+        
+                h2 {
+                    color: #333;
+                    font-size: 24px;
+                    margin-bottom: 10px;
+                }
+        
+                .achievement, .event {
+                    background-color: #f9f9f9;
+                    padding: 15px;
+                    border-radius: 5px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ddd;
+                }
+        
+                h3 {
+                    color: #555;
+                    font-size: 20px;
+                    margin: 0 0 10px;
+                }
+        
+                p {
+                    color: #666;
+                    font-size: 16px;
+                    margin: 0;
+                }
+        
+                button {
+                    padding: 8px 16px;
+                    background-color: #007bff;
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    margin-top: 10px;
+                }
+        
+                button:hover {
+                    background-color: #0056b3;
+                }
+        
+                /* Estilos de grid para mostrar dos imágenes en cada fila */
+                .product-grid {
+                    display: none;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    margin-top: 10px;
+                }
+        
+                .product-card {
+                    width: calc(50% - 10px); /* Dos tarjetas por fila */
+                    background-color: #fff;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    overflow: hidden;
+                    text-align: center;
+                    transition: transform 0.3s ease;
+                    opacity: 0;
+                    transform: scale(0.9);
+                }
+        
+                .product-card.show {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+        
+                .product-card img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                }
+        
+                .product-card h4 {
+                    color: #333;
+                    font-size: 16px;
+                    margin: 8px 0;
+                }
+            </style>
+        </head>
+        <body>
+        
+        <div class="container">
+            <!-- Sección de logros recientes -->
+            <div class="section">
+                <h2>Logros Recientes</h2>
+                <div class="achievement">
+                    <h3>Premio a la Mejor Barbería del Año</h3>
+                    <p>Nos enorgullece haber sido premiados por nuestra dedicación a la calidad y la atención al cliente. ¡Gracias a todos los que nos apoyan!</p>
+                </div>
+                <button onclick="toggleImages('premio1')">Ver/Ocultar Imágenes</button>
+                <div id="premio1" class="product-grid"></div>
+            </div>
+        
+            <div class="section">
+                <h2>Logros Recientes</h2>
+                <div class="achievement">
+                    <h3>Premio de Excelencia en Atención al Cliente</h3>
+                    <p>Reconocidos por brindar una experiencia excepcional a cada cliente que nos visita.</p>
+                </div>
+                <button onclick="toggleImages('premio2')">Ver/Ocultar Imágenes</button>
+                <div id="premio2" class="product-grid"></div>
+            </div>
+        
+            <div class="section">
+                <h2>Logros Recientes</h2>
+                <div class="achievement">
+                    <h3>Premio a la Innovación en Estilos</h3>
+                    <p>Por nuestra constante innovación y adaptación a las nuevas tendencias.</p>
+                </div>
+                <button onclick="toggleImages('premio3')">Ver/Ocultar Imágenes</button>
+                <div id="premio3" class="product-grid"></div>
+            </div>
+        
+            <!-- Sección de eventos -->
+            <div class="section">
+                <h2>Próximos Eventos</h2>
+                <div class="event">
+                    <h3>Noche de Barbería y Estilo</h3>
+                    <p>Únete a nosotros para una noche especial llena de estilo, donde podrás disfrutar de cortes y demostraciones en vivo.</p>
+                </div>
+                <div class="event">
+                    <h3>Clínica de Cuidado de Barba</h3>
+                    <p>Un evento exclusivo para aprender técnicas avanzadas de cuidado y estilo de barba con nuestros expertos.</p>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            const products = [
+                { id: 1, name: 'Imagen 1', category: 'premio1', img: 'img/barber1.jpg' },
+                { id: 2, name: 'Imagen 2', category: 'premio1', img: 'img/barber2.jpg' },
+                { id: 3, name: 'Imagen 1', category: 'premio2', img: 'img/barber3.jpg' },
+                { id: 4, name: 'Imagen 2', category: 'premio2', img: 'img/barber4.jpg' },
+                { id: 5, name: 'Imagen 1', category: 'premio3', img: 'img/barber5.jpg' },
+                { id: 6, name: 'Imagen 2', category: 'premio3', img: 'img/barber6.jpg' },
+            ];
+        
+            function toggleImages(category) {
+                const productGrid = document.getElementById(category);
+                const isVisible = productGrid.style.display === 'flex';
+        
+                if (isVisible) {
+                    productGrid.style.display = 'none';
+                } else {
+                    productGrid.style.display = 'flex';
+                    showImages(category);
+                }
+            }
+        
+            function showImages(category) {
+                const productGrid = document.getElementById(category);
+                productGrid.innerHTML = '';
+                const filteredProducts = products.filter(product => product.category === category);
+        
+                filteredProducts.forEach(product => {
+                    const productCard = `
+                        <div class="product-card">
+                            <img src="${product.img}" alt="${product.name}">
+                            <h4>${product.name}</h4>
+                        </div>
+                    `;
+                    productGrid.insertAdjacentHTML('beforeend', productCard);
+                });
+        
+                const cards = document.querySelectorAll(`#${category} .product-card`);
+                setTimeout(() => {
+                    cards.forEach(card => card.classList.add('show'));
+                }, 100);
+            }
+        </script>
+        
+        </body>
+        </html>
+        
